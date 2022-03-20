@@ -16,7 +16,7 @@ class ProductController extends Controller
 
     public function listProduct()
     {
-        return DataTables::of(Product::query())->toJson();
+        return DataTables::of(Product::where('status',1)->get())->toJson();
     }
 
     public function create(Request $request)
@@ -24,5 +24,18 @@ class ProductController extends Controller
         $result = Product::Insert($request->all());
 
         return Result::SUCCESS($result);
+    }
+
+    public function delete(Request $request)
+    {
+        $id = $request->get("id");
+
+        $cek = Product::where("id", $id)->first();
+
+        if (!empty($cek)) {
+            $cek->status = 0;
+        }
+
+        $cek->save();
     }
 }

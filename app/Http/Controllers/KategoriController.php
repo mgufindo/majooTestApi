@@ -10,7 +10,7 @@ class KategoriController extends Controller
 {
     public function kategori()
     {
-        return DataTables::of(Kategori::query())->toJson();
+        return DataTables::of(Kategori::where('status',1)->get())->toJson();
     }
 
     public function kategoriList()
