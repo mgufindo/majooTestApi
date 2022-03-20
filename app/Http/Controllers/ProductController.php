@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function allProduct()
     {
-        $response = Product::get();
+        $response = Product::where("status",1)->get();
         return Result::SUCCESS($response);
     }
 

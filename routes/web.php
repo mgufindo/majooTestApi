@@ -29,4 +29,5 @@ $router->group(['prefix' => 'product', 'middleware' => [\App\Http\Middleware\Cor
 $router->group(['prefix' => 'kategori', 'middleware' => [\App\Http\Middleware\Cors::class]], function () use ($router) {
     $router->get('/', 'KategoriController@kategori');
     $router->get('/list', 'KategoriController@kategoriList');
+    $router->post('/insert', 'KategoriController@insert');
 });
