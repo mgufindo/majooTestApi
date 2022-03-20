@@ -30,4 +30,7 @@ $router->group(['prefix' => 'kategori', 'middleware' => [\App\Http\Middleware\Co
     $router->get('/', 'KategoriController@kategori');
     $router->get('/list', 'KategoriController@kategoriList');
     $router->post('/insert', 'KategoriController@insert');
+    $router->get('/get-edit/{id}', 'KategoriController@getDataEdit');
+    $router->post('/update/{id}', 'KategoriController@update');
+    $router->post('/delete', 'KategoriController@delete');
 });
