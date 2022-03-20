@@ -18,4 +18,11 @@ class ProductController extends Controller
     {
         return DataTables::of(Product::query())->toJson();
     }
+
+    public function create(Request $request)
+    {
+        $result = Product::Insert($request->all());
+
+        return Result::SUCCESS($result);
+    }
 }
