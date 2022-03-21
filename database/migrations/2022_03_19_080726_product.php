@@ -17,11 +17,11 @@ class Product extends Migration
             $table->timestamps();
             $table->id();
             $table->string("nama_produk");
-            $table->string("deskripsi_produk");
+            $table->text("deskripsi_produk");
             $table->integer("harga_produk");
             $table->integer("kategori_id");
             $table->string("image");
-            $table->integer("status")->default(1);
+            $table->smallInteger("status")->default(1);
         });
     }
 
